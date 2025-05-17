@@ -94,7 +94,7 @@ const OnboardingPage = () => {
             </div>
 
             {/* BIO */}
-            <div className="form-control grid">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Bio</span>
               </label>
@@ -102,7 +102,7 @@ const OnboardingPage = () => {
                 name="bio"
                 value={formState.bio}
                 onChange={(e) => setFormState({ ...formState, bio: e.target.value })}
-                className="textarea textarea-bordered h-10"
+                className="textarea textarea-bordered h-24"
                 placeholder="Tell others about yourself and your language learning goals"
               />
             </div>
