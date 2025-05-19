@@ -28,7 +28,18 @@ const NotificationsPage = () => {
                       key={request._id}
                       className="card bg-base-200 shadow-sm hover:shadow-md transition-shadow"
                     >
-                     
+                      <div className="card-body p-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="avatar w-14 h-14 rounded-full bg-base-300">
+                              <img src={request.sender.profilePic} alt={request.sender.fullName} />
+                            </div>
+                            
+                          </div>
+
+                          
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
