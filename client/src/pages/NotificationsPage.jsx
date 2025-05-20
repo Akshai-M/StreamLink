@@ -70,7 +70,9 @@ const NotificationsPage = () => {
               </section>
             )}
 
-           
+            {incomingRequests.length === 0 && acceptedRequests.length === 0 && (
+              <NoNotificationsFound />
+            )}
           </>
         )}
       </div>
