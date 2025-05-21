@@ -61,7 +61,10 @@ const NotificationsPage = () => {
                             <h3 className="font-semibold">{notification.recipient.fullName}</h3>
                             
                           </div>
-                          
+                          <div className="badge badge-success">
+                            <MessageSquareIcon className="h-3 w-3 mr-1" />
+                            New Friend
+                          </div>
                         </div>
                       </div>
                     </div>
