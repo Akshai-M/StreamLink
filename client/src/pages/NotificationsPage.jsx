@@ -59,7 +59,13 @@ const NotificationsPage = () => {
                          
                           <div className="flex-1">
                             <h3 className="font-semibold">{notification.recipient.fullName}</h3>
-                            
+                            <p className="text-sm my-1">
+                              {notification.recipient.fullName} accepted your friend request
+                            </p>
+                            <p className="text-xs flex items-center opacity-70">
+                              <ClockIcon className="h-3 w-3 mr-1" />
+                              Recently
+                            </p>
                           </div>
                           <div className="badge badge-success">
                             <MessageSquareIcon className="h-3 w-3 mr-1" />
