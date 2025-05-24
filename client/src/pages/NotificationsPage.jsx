@@ -49,7 +49,10 @@ const NotificationsPage = () => {
             {/* ACCEPTED REQS NOTIFICATONS */}
             {acceptedRequests.length > 0 && (
               <section className="space-y-4">
-                
+                <h2 className="text-xl font-semibold flex items-center gap-2">
+                  <BellIcon className="h-5 w-5 text-success" />
+                  New Connections
+                </h2>
 
                 <div className="space-y-3">
                   {acceptedRequests.map((notification) => (
