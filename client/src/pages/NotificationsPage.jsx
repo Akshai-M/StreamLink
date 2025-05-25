@@ -37,7 +37,13 @@ const NotificationsPage = () => {
                             
                           </div>
 
-                          
+                          <button
+                            className="btn btn-primary btn-sm"
+                            onClick={() => acceptRequestMutation(request._id)}
+                            disabled={isPending}
+                          >
+                            Accept
+                          </button>
                         </div>
                       </div>
                     </div>
