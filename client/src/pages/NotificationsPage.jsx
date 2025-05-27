@@ -20,7 +20,11 @@ const NotificationsPage = () => {
           <>
             {incomingRequests.length > 0 && (
               <section className="space-y-4">
-                
+                <h2 className="text-xl font-semibold flex items-center gap-2">
+                  <UserCheckIcon className="h-5 w-5 text-primary" />
+                  Friend Requests
+                  <span className="badge badge-primary ml-2">{incomingRequests.length}</span>
+                </h2>
 
                 <div className="space-y-3">
                   {incomingRequests.map((request) => (
