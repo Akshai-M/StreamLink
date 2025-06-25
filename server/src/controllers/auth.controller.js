@@ -30,7 +30,14 @@ export async function signup(req, res) {
         message: "Email already exists",
       });
     }
-    
+    const idx = Math.floor(Math.random() * 100) + 1;
+    const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
+    const newUser = await User.create({
+      email,
+      fullName,
+      password,
+      profilePic: randomAvatar,
+    });
 
     
     res.status(201).json({
