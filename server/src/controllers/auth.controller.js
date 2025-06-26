@@ -1,5 +1,5 @@
 import User from "../models/User.js";
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 export async function signup(req, res) {
   const { email, password, fullName } = req.body;
 
@@ -55,16 +55,37 @@ export async function signup(req, res) {
       user: newUser,
     });
   } catch (error) {
-    console.log(`Error in signup controller`, error)
+    console.log(`Error in signup controller`, error);
     res.status(500).json({
       message: "Internal server error",
     });
   }
 }
 
+export async function login(req, res) {
+  try {
+    const { email, password } = req.body;
 
-export function login(req, res) {
-  res.send("login page");
+    if (!email || !password)
+      return res.status(400).json({ message: "All fields are required" });
+    const user = (await User.findOne({ email })(user))
+      ? res.status(400).json({ message: "Internal email or password" })
+      : "";
+    const isPassword = await user.matchPassword(password);
+    if (!isPassword)
+      return res.status(401).json({ message: "Invalid email or password " });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, {
+      expiresIn: "7d",
+    });
+    res.cookie("jwt", token, {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpONly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+    });
+    res.status(200).json({ success: true, user });
+  } catch (error) {}
+  res.status(500).json({ message: "Internal server error"})
 }
 
 export function logout(req, res) {
