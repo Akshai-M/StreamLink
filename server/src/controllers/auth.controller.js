@@ -96,3 +96,14 @@ export function logout(req, res) {
   res.clearCookie("jwt");
   res.status(200).json({ success: true, message: "Logout successful" });
 }
+
+export async function onborad(req, res){
+  try {
+    const userId = req.user._id;
+    const { fullName, bio, nativeLanguage, learningLanguage, location } = req.body;
+  
+  } catch (error) {
+    console.error(`Error in onborad controller: ${error}`);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
