@@ -101,7 +101,17 @@ export async function onborad(req, res){
   try {
     const userId = req.user._id;
     const { fullName, bio, nativeLanguage, learningLanguage, location } = req.body;
-  
+    if (!fullName || !bio || !nativeLanguage || !learningLanguage || !location) {
+      return res.status(400).json({ message: "All fields are required", 
+        missingFields: [
+          !fullName && "fullName",
+          !bio && "bio",
+          !nativeLanguage && "nativeLanguage",
+          !learningLanguage && "learningLanguage",
+          !location && "location"
+        ].filter(Boolean)
+       }); 
+    }
   } catch (error) {
     console.error(`Error in onborad controller: ${error}`);
     res.status(500).json({ message: "Internal server error" });
