@@ -112,6 +112,13 @@ export async function onborad(req, res){
         ].filter(Boolean)
        }); 
     }
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,{
+        ...req.body, 
+        isOnboarded: true,
+
+      }, {new: true}
+    )
   } catch (error) {
     console.error(`Error in onborad controller: ${error}`);
     res.status(500).json({ message: "Internal server error" });
