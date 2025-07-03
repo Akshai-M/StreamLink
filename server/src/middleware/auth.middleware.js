@@ -13,7 +13,12 @@ export const protectRoute = async ( req, res, next) => {
             return res.status(401).json({ message: "Unauthorized, please login" });
 
         }
-        
+        const user = await User.findById(decode.userId).select("-password");
+        if(!user) {
+            return res.status(401).json({ message: "Unauthorized, please login" });
+        }
+        req.user = user
+        next()
     } catch (error) {
         console.erroe(`Error in protectRoute middleware: ${error}`)
         return res.status(500).json({ message: "Internal server error" });
