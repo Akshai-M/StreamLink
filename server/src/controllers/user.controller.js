@@ -12,6 +12,7 @@ export async function getRecommendedUser(req, res) {
                 { isOnboarded: true}
             ]
         })
+        res.status(200).json(rmdUsers)
     } catch (error) {
         console.error('Error in getRmd controller', error.message)
         res.status(500).json({ message: "Internal Server Error"})
