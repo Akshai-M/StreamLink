@@ -122,6 +122,18 @@ export async function onborad(req, res){
     if(!updatedUser){
       return res.status(404).json({ message: "User not found"})
     }
+
+    try {
+      await upsertStreamUser({
+      id: updatedUser._id.toString(),
+      name: updatedUser.fullName,
+      image: updatedUser.profilePic || "",
+    })
+    } catch (error) {
+     console.error(`Error updating Stream user during onboarding ${error.message}`) 
+    }
+    
+
     res.status(200).json({ success: true, user: updatedUser });
   } catch (error) {
     console.error(`Error in onborad controller: ${error}`);
