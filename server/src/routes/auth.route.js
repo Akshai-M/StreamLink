@@ -11,6 +11,7 @@ router.post("/login", login);
 router.post("/logout", logout);
 
 router.post('/onboarding', protectRoute, onborad)
+router.get('/get', protectRoute, onborad)
 
 
 export default router;
