@@ -12,4 +12,7 @@ router.get('/friends', getMyFriends)
 router.post("/friend-req/:id", sendFriendReq)
 router.post("/friend-req/:id/accept", acceptFriendReq)
 
+router.get("/friend-req", getFriendReq)
+router.get("/outgoing-req", getOutgoingReq)
+
 export default router
