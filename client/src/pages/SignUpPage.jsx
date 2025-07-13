@@ -70,7 +70,23 @@ const navigate = useNavigate();
                       required
                     />
                   </div>
-                
+                  {/* PASSWORD */}
+                  <div className="form-control w-full">
+                    <label className="label">
+                      <span className="label-text">Password</span>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="********"
+                      className="input input-bordered w-full"
+                      value={signupData.password}
+                      onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+                      required
+                    />
+                    <p className="text-xs opacity-70 mt-1">
+                      Password must be at least 6 characters long
+                    </p>
+                  </div>
 
                   
                 </div>
