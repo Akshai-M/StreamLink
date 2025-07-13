@@ -23,7 +23,10 @@ function OnboardingPage() {
     }
   })
 
- 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onboardingMutation(formState)
+  }
   return <div>Onboarding</div>;
 }
 
