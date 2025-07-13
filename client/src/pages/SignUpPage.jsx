@@ -42,7 +42,20 @@ const navigate = useNavigate();
                 </div>
 
                 <div className="space-y-3">
-                  
+                  {/* FULLNAME */}
+                  <div className="form-control w-full">
+                    <label className="label">
+                      <span className="label-text">Full Name</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="John Doe"
+                      className="input input-bordered w-full"
+                      value={signupData.fullName}
+                      onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
+                      required
+                    />
+                  </div>
                  
                 
 
