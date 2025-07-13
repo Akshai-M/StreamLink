@@ -6,49 +6,56 @@ import NotificationsPage from "./pages/NotificationsPage.jsx";
 import CallPage from "./pages/CallPage.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
 import OnboardingPage from "./pages/OnboardingPage.jsx";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "./lib/Axios.js";
 
 function App() {
-  const { data: authData, isLoading, error } = useQuery({
+  const {
+    data: authData,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["todos"],
     queryFn: async () => {
-      const res = await axiosInstance.get("https://jsonplaceholder.typicode.com/todos")
-      return res.data
-    }, retry: false
-  })
+      const res = await axiosInstance.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      return res.data;
+    },
+    retry: false,
+  });
 
-  const authUser = authData?.user
-  console.log(data)
+  const authUser = authData?.user;
+  // console.log(data);
   const pathRoutes = [
     {
       path: "/",
-      element: <HomePage />,
+      element: authUser ? <HomePage /> : <Navigate to="/login" />,
     },
     {
       path: "/signup",
-      element: <SignUpPage />,
+      element: !authUser ? <SignUpPage /> : <Navigate to="/" />,
     },
     {
       path: "/login",
-      element: <LoginPage />,
+      element: !authUser ? <LoginPage /> : <Navigate to="/" />,
     },
     {
-      path: "/notification",
-      element: <NotificationsPage />,
+      path: "/notifications",
+      element: authUser ? <NotificationsPage /> : <Navigate to="/login" />,
     },
     {
-      path: "/call",
-      element: <CallPage />,
+      path: "/call/:id",
+      element: authUser ? <CallPage /> : <Navigate to="/login" />,
     },
     {
-      path: "/chat",
-      element: <ChatPage />,
+      path: "/chat/:id",
+      element: authUser ? <ChatPage /> : <Navigate to="/login" />,
     },
     {
       path: "/onboarding",
-      element: <OnboardingPage />,
+      element: authUser ? <OnboardingPage /> : <Navigate to="/login" />,
     },
   ];
   return (
