@@ -56,7 +56,20 @@ const navigate = useNavigate();
                       required
                     />
                   </div>
-                 
+                  {/* EMAIL */}
+                  <div className="form-control w-full">
+                    <label className="label">
+                      <span className="label-text">Email</span>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="john@gmail.com"
+                      className="input input-bordered w-full"
+                      value={signupData.email}
+                      onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                      required
+                    />
+                  </div>
                 
 
                   
