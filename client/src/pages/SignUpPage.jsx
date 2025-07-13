@@ -100,7 +100,16 @@ const navigate = useNavigate();
                   </div>
                 </div>
 
-                
+                <button className="btn btn-primary w-full" type="submit">
+                  {isPending ? (
+                    <>
+                      <span className="loading loading-spinner loading-xs"></span>
+                      Loading...
+                    </>
+                  ) : (
+                    "Create Account"
+                  )}
+                </button>
 
                 
               </div>
