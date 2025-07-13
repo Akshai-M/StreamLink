@@ -7,11 +7,11 @@ import connectDB from './lib/db.js'
 import cookieParser from 'cookie-parser'
 import cors from "cors"
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 app.use(cors({
     origin: "http://localhost:5173",
-    credential: true
+    credentials: true
 }))
 
 app.use(express.json())
