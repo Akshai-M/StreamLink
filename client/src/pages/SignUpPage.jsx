@@ -30,6 +30,16 @@ const navigate = useNavigate();
           
 
           
+          {error && (
+            <div className="alert alert-error mb-4">
+              
+              <span>
+                {error.response && error.response.data && error.response.data.message
+                  ? error.response.data.message
+                  : error.message || "An unexpected error occurred."}
+              </span>
+            </div>
+          )}
 
           <div className="w-full">
             <form onSubmit={handleSignup}>
