@@ -92,9 +92,9 @@ export async function login(req, res) {
   }
 }
 
-export function logout(req, res) {
-  res.clearCookie("jwt");
-  res.status(200).json({ success: true, message: "Logout successful" });
+export async function logout(req, res) {
+  res.clearCookie("jwt", {httpOnly: true,})
+  res.status(200).json({ success: true, message: "Logged out successfully"})
 }
 
 export async function onborad(req, res){
