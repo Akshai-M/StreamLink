@@ -15,7 +15,13 @@ function OnboardingPage() {
     profilePic: authUser?.profilePic || "",
   })
 
-  
+  const {mutate: onboardingMutation, isPending} = useMutation({
+    mutationFn: completeOnboarding,
+    onSuccess: () => {
+      toast.success("Profile onboarded successfully")
+      QueryClient.invalidateQueries({ queryKey: ["authUser"]})
+    }
+  })
 
  
   return <div>Onboarding</div>;
