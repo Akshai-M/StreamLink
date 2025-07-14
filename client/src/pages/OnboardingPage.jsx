@@ -150,7 +150,23 @@ const OnboardingPage = () => {
               </div>
             </div>
 
-            
+            {/* LOCATION */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Location</span>
+              </label>
+              <div className="relative">
+                <MapPinIcon className="absolute top-1/2 transform -translate-y-1/2 left-3 size-5 text-base-content opacity-70" />
+                <input
+                  type="text"
+                  name="location"
+                  value={formState.location}
+                  onChange={(e) => setFormState({ ...formState, location: e.target.value })}
+                  className="input input-bordered w-full pl-10"
+                  placeholder="City, Country"
+                />
+              </div>
+            </div>
 
             {/* SUBMIT BUTTON */}
 
