@@ -78,7 +78,20 @@ const OnboardingPage = () => {
               </div>
             </div>
 
-           
+            {/* FULL NAME */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Full Name</span>
+              </label>
+              <input
+                type="text"
+                name="fullName"
+                value={formState.fullName}
+                onChange={(e) => setFormState({ ...formState, fullName: e.target.value })}
+                className="input input-bordered w-full"
+                placeholder="Your full name"
+              />
+            </div>
 
             
 
