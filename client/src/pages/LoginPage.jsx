@@ -116,7 +116,9 @@ const LoginPage = () => {
         </div>
 
         {/* IMAGE SECTION */}
-        
+        <div className="hidden lg:flex w-full lg:w-1/2 bg-primary/10 items-center justify-center">
+         
+        </div>
       </div>
     </div>
   );
